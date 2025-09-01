@@ -150,7 +150,7 @@
         <h2 class="title is-3">Abstract</h2>
         <div class="content has-text-justified">
           <p>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin ullamcorper tellus sed ante aliquam tempus. Etiam porttitor urna feugiat nibh elementum, et tempor dolor mattis. Donec accumsan enim augue, a vulputate nisi sodales sit amet. Proin bibendum ex eget mauris cursus euismod nec et nibh. Maecenas ac gravida ante, nec cursus dui. Vivamus purus nibh, placerat ac purus eget, sagittis vestibulum metus. Sed vestibulum bibendum lectus gravida commodo. Pellentesque auctor leo vitae sagittis suscipit.
+            Dataset distillation compresses large datasets into compact synthetic subsets for efficient learning. However, existing methods often rely on surrogate models, resulting in undesirable high-frequency patterns and limited cross-architecture generalization. To address this issue, we introduce PReDD, a training-free and \textbf{P}ost-distillation \textbf{Re}finement module that improves the quality of \textbf{D}istilled \textbf{D}atasets without retraining or modifying the original pipeline. PReDD encodes distilled images into the latent space of a pretrained VAE and applies a truncated reverse diffusion process to refine them, effectively suppressing surrogate-induced high-frequency patterns while preserving semantic content. Our method is model-agnostic and compatible with various distillation techniques. Extensive experiments show that PReDD consistently achieves state-of-the-art performance on cross-architecture evaluation, demonstrating superior generalization in dataset distillation.
           </p>
         </div>
       </div>
