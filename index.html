@@ -299,13 +299,11 @@
           <img src="static/images/ablation_dm.svg" 
                alt="Reverse Diffusion Step 1" 
                style="max-width: 95%; height: auto; display: block; margin: 0 auto;">
-          <p class="is-6 has-text-grey mt-1">Step 1</p>
         </div>
         <div class="column is-half has-text-centered">
           <img src="static/images/ablation_mtt.svg" 
                alt="Reverse Diffusion Step 2" 
                style="max-width: 95%; height: auto; display: block; margin: 0 auto;">
-          <p class="is-6 has-text-grey mt-1">Step 2</p>
         </div>
       </div>
 
@@ -327,32 +325,46 @@
 <!-- End Effect of Reverse Diffusion Steps -->
 
 
-
-
 <!-- Results Table (as image) -->
 <section class="hero is-small is-light">
   <div class="hero-body">
     <div class="container">
+
       <h2 class="title is-3">Quantitative Results</h2>
+
       <div class="columns is-centered has-text-centered">
         <div class="column is-four-fifths">
 
-          <!-- 这里放你的截图 -->
+          <!-- 表格截图 -->
           <img src="static/images/table_results.png" 
                alt="Quantitative Results Table" 
                style="max-width: 80%; height: auto; display: block; margin: 0 auto;"/>
 
+          <!-- 表格说明 -->
           <p class="subtitle is-6">
             Cross-architecture Top-1 accuracy on various ImageNet subsets (IPC = 1, 10).  
             Evaluation on <b>unseen architectures</b>, including ViT-b/16, EfficientNet, ShuffleNetV2, MobileNetV2, and ResNet18. Mean ± std over 5 runs.
           </p>
 
+          <!-- 分析段落 -->
+          <div class="content has-text-justified mt-3">
+            <p>
+              Table above summarizes cross-architecture results on multiple ImageNet subsets under IPC=1 and 10. 
+              Across all baselines, our <b>PReDD</b> consistently improves generalization on unseen architectures. 
+              Gains are particularly pronounced on MTT, where improvements exceed <b>+10%</b> absolute in several settings 
+              (e.g., Yellow, Nette at IPC=10). This indicates that PReDD effectively reduces surrogate-induced bias 
+              and strengthens semantic consistency.
+            </p>
+          </div>
+
         </div>
       </div>
+
     </div>
   </div>
 </section>
 <!-- End Results Table -->
+
 
 
 <!-- Paper poster -->
