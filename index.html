@@ -283,7 +283,7 @@
   }
 </style>
 
-<!-- Effect of Reverse Diffusion Steps -->
+<!-- Effect of Reverse Diffusion Steps + t-SNE -->
 <section class="hero is-small is-light">
   <div class="hero-body">
     <div class="container">
@@ -293,36 +293,50 @@
         Effect of Reverse Diffusion Steps
       </h3>
 
-      <!-- 两张SVG并排 -->
-      <div class="columns is-multiline is-mobile">
-        <div class="column is-half has-text-centered">
-          <img src="static/images/ablation_dm.svg" 
-               alt="Reverse Diffusion Step 1" 
-               style="max-width: 95%; height: auto; display: block; margin: 0 auto;">
-        </div>
-        <div class="column is-half has-text-centered">
-          <img src="static/images/ablation_mtt.svg" 
-               alt="Reverse Diffusion Step 2" 
-               style="max-width: 95%; height: auto; display: block; margin: 0 auto;">
-        </div>
-      </div>
+      <div class="columns is-vcentered">
 
-      <!-- 分析段落 -->
-      <div class="content has-text-justified mt-3">
-        <p>
-          As shown in the figures above, <b>MTT</b> consistently favors a shallow depth (K=10) for both IPC=1 and IPC=10, 
-          while <b>DM</b> requires deeper refinement, peaking at K=15 for IPC=1 and K=20 for IPC=10. 
-          We attribute this to the difference in semantic quality: MTT already produces class-consistent samples, 
-          so shallow refinement suffices, whereas DM generates weaker semantics with stronger high-frequency bias, 
-          which benefits from more reverse steps to recover semantic structure. Overall, the optimal K varies with method and IPC, 
-          but PReDD remains robust across a broad range. Excessively large K, however, may oversmooth details and harm generalization.
-        </p>
+        <!-- 左半边: Ablation 图 -->
+        <div class="column is-half has-text-centered">
+          <img src="static/images/ablation_subplots.svg" 
+               alt="Reverse Diffusion Ablation" 
+               style="max-width: 95%; height: auto; display: block; margin: 0 auto;">
+          <p class="is-6 has-text-grey mt-1">Reverse Diffusion Ablation</p>
+
+          <!-- 可选分析文字针对左边图 -->
+          <div class="content has-text-justified mt-2">
+            <p>
+              As shown above, <b>MTT</b>(left) consistently favors a shallow depth (K=10) for both IPC=1 and IPC=10, 
+              while <b>DM</b>(right) requires deeper refinement, peaking at K=15 for IPC=1 and K=20 for IPC=10. 
+              This is due to semantic quality differences: MTT produces class-consistent samples, so shallow refinement suffices, 
+              whereas DM generates weaker semantics with stronger high-frequency bias, benefiting from more reverse steps. 
+              Excessively large K may oversmooth details and harm generalization.
+            </p>
+          </div>
+        </div>
+
+        <!-- 右半边: t-SNE 图 -->
+        <div class="column is-half has-text-centered">
+          <img src="static/images/t-SNE.svg" 
+               alt="t-SNE Feature Visualization" 
+               style="max-width: 95%; height: auto; display: block; margin: 0 auto;">
+          <p class="is-6 has-text-grey mt-1">t-SNE Visualization</p>
+
+          <div class="content has-text-justified mt-2">
+            <p>
+              Fig. above shows a t-SNE visualization of feature embeddings for three selected classes in ImageNet-Fruits (10 IPC). 
+              Random samples are widely scattered with substantial overlaps, distilled samples are more compact but still suffer from noticeable inter-class mixing. 
+              In contrast, PReDD consistently produces clusters that are both compact within each class and well separated across classes, with minimal overlaps.
+            </p>
+          </div>
+        </div>
+
       </div>
 
     </div>
   </div>
 </section>
-<!-- End Effect of Reverse Diffusion Steps -->
+<!-- End Effect of Reverse Diffusion Steps + t-SNE -->
+
 
 
 <!-- Results Table (as image) -->
