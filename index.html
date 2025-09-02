@@ -147,7 +147,15 @@
         <h2 class="title is-3">Abstract</h2>
         <div class="content has-text-justified">
           <p>
-            Dataset distillation compresses large datasets into compact synthetic subsets for efficient learning. However, existing methods often rely on surrogate models, resulting in undesirable high-frequency patterns and limited cross-architecture generalization. To address this issue, we introduce PReDD, a training-free and Post-distillation Refinement module that improves the quality of Distilled Datasets without retraining or modifying the original pipeline. PReDD encodes distilled images into the latent space of a pretrained VAE and applies a truncated reverse diffusion process to refine them, effectively suppressing surrogate-induced high-frequency patterns while preserving semantic content. Our method is model-agnostic and compatible with various distillation techniques. Extensive experiments show that PReDD consistently achieves state-of-the-art performance on cross-architecture evaluation, demonstrating superior generalization in dataset distillation.
+            Dataset distillation compresses large datasets into compact synthetic subsets for efficient learning. 
+            However, existing methods often rely on surrogate models, resulting in undesirable high-frequency patterns and limited cross-architecture generalization. 
+            To address this issue, we introduce PReDD, 
+            a training-free and <b>P</b>ost-distillation <b>Re</b>finement module that improves the quality of <b>D</b>istilled <b>D</b>atasets without retraining or modifying the original pipeline. 
+            PReDD encodes distilled images into the latent space of a pretrained VAE and applies a truncated reverse diffusion process to refine them, 
+            effectively suppressing surrogate-induced high-frequency patterns while preserving semantic content. 
+            Our method is model-agnostic and compatible with various distillation techniques. 
+            Extensive experiments show that PReDD consistently achieves state-of-the-art performance on cross-architecture evaluation, 
+            demonstrating superior generalization in dataset distillation.
           </p>
         </div>
       </div>
@@ -159,7 +167,7 @@
 <!-- Motivation with four images -->
 <section class="section">
   <div class="container is-max-desktop">
-    <h2 class="title is-3 has-text-centered">Motivation</h2>
+    <h2 class="title is-3 has-text-centered">Motivation and Our Contribution</h2>
 
     <div class="columns is-centered">
       <div class="column has-text-centered">
@@ -178,13 +186,31 @@
 
     <div class="content has-text-justified mt-5">
       <p>
-        Our motivation can be illustrated through the four steps above: distilled datasets often
-        exhibit <b>high-frequency artifacts</b>, which we address by refining them in the latent space
-        using a truncated reverse diffusion process, leading to <b>cleaner and more generalizable datasets</b>.
+        As shown in Figure above, a key limitation of surrogate-driven distillation is the emergence of excessive high-frequency patterns in synthetic images. 
+        We quantify these patterns using Fourier analysis by computing the ratio of spectral energy in the high-frequency band (normalized radial frequency r ≥ 0.5) and plotting its distribution across samples. Distilled datasets exhibit higher high-frequency energy than random, which correlates with degraded cross-architecture generalization. 
+        In contrast, PReDD reduces these patterns, producing spectra closer to or even lower than those of randomly chosen real samples. 
+        This improvement mitigates structural bias and enhances transferability across architectures.
       </p>
+
+      <p><b>Our contributions are summarized as follows:</b></p>
+      <ul>
+        <li>
+          Through Fourier analysis, we reveal that surrogate-driven distilled datasets exhibit 
+          high-frequency patterns that hinder generalization. 
+        </li>
+        <li>
+          By encoding distilled samples with a pre-trained VAE and applying truncated reverse diffusion, 
+          PReDD suppresses high-frequency components while enhancing semantic fidelity.
+        </li>
+        <li>
+          PReDD is modular and lightweight, easily integrated into existing pipelines, and achieves 
+          state-of-the-art cross-architecture performance on ImageNet subsets.
+        </li>
+      </ul>
     </div>
   </div>
 </section>
+
 
 
 <style>
