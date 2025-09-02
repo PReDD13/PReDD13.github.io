@@ -283,6 +283,51 @@
   }
 </style>
 
+<!-- Effect of Reverse Diffusion Steps -->
+<section class="hero is-small is-light">
+  <div class="hero-body">
+    <div class="container">
+
+      <!-- 左上角小标题 -->
+      <h3 class="title is-4" style="text-align: left; margin-bottom: 1rem;">
+        Effect of Reverse Diffusion Steps
+      </h3>
+
+      <!-- 两张SVG并排 -->
+      <div class="columns is-multiline is-mobile">
+        <div class="column is-half has-text-centered">
+          <img src="static/images/ablation_dm.svg" 
+               alt="Reverse Diffusion Step 1" 
+               style="max-width: 95%; height: auto; display: block; margin: 0 auto;">
+          <p class="is-6 has-text-grey mt-1">Step 1</p>
+        </div>
+        <div class="column is-half has-text-centered">
+          <img src="static/images/ablation_mtt.svg" 
+               alt="Reverse Diffusion Step 2" 
+               style="max-width: 95%; height: auto; display: block; margin: 0 auto;">
+          <p class="is-6 has-text-grey mt-1">Step 2</p>
+        </div>
+      </div>
+
+      <!-- 分析段落 -->
+      <div class="content has-text-justified mt-3">
+        <p>
+          As shown in the figures above, <b>MTT</b> consistently favors a shallow depth (K=10) for both IPC=1 and IPC=10, 
+          while <b>DM</b> requires deeper refinement, peaking at K=15 for IPC=1 and K=20 for IPC=10. 
+          We attribute this to the difference in semantic quality: MTT already produces class-consistent samples, 
+          so shallow refinement suffices, whereas DM generates weaker semantics with stronger high-frequency bias, 
+          which benefits from more reverse steps to recover semantic structure. Overall, the optimal K varies with method and IPC, 
+          but PReDD remains robust across a broad range. Excessively large K, however, may oversmooth details and harm generalization.
+        </p>
+      </div>
+
+    </div>
+  </div>
+</section>
+<!-- End Effect of Reverse Diffusion Steps -->
+
+
+
 
 <!-- Results Table (as image) -->
 <section class="hero is-small is-light">
@@ -311,7 +356,7 @@
 
 
 <!-- Paper poster -->
-<section class="hero is-small is-light">
+<!-- <section class="hero is-small is-light">
   <div class="hero-body">
     <div class="container">
       <h2 class="title">Poster</h2>
@@ -321,17 +366,17 @@
         
       </div>
     </div>
-  </section>
+  </section> -->
 <!--End paper poster -->
 
 
-<!--BibTex citation -->
-  <section class="section" id="BibTeX">
+<!-- BibTex citation -->
+  <!-- <section class="section" id="BibTeX">
     <div class="container is-max-desktop content">
       <h2 class="title">BibTeX</h2>
       <pre><code>BibTex Code Here</code></pre>
     </div>
-</section>
+</section> -->
 <!--End BibTex citation -->
 
 
